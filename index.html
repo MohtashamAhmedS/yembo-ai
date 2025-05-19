@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ballpark Estimate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="widget.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css"
+    />
+  </head>
+  <body>
+    <div id="yembo-ballpark-estimate-widget">
+      <button type="submit" id="yembo-start">
+        Get a free estimate <span class="arrow">→</span>
+      </button>
+
+      <div id="yembo-overlay"></div>
+
+      <div id="yembo-modal">
+        <div class="overlay"></div>
+        <div class="modal">
+          <div id="yembo-ballpark-estimate-widget-button-div">
+            <button class="back-arrow" id="yembo-back-2">←</button>
+            <button class="close" aria-label="Close">×</button>
+          </div>
+          <div class="content active" data-step="1">
+            <div class="step">Step 1 of 2</div>
+            <h2>Tell us about your move</h2>
+            <label for="size">I am moving</label>
+            <select id="size">
+              <option>Just a few items</option>
+              <option>1 bedroom</option>
+              <option>2 bedrooms</option>
+              <option selected>3 bedrooms</option>
+              <option>4 bedrooms</option>
+              <option>5+ bedrooms</option>
+            </select>
+
+            <label for="from">From</label>
+            <input id="from" type="text" placeholder="London, UK" />
+
+            <label for="to">To</label>
+            <input id="to" type="text" placeholder="Amsterdam, NL" />
+
+            <button id="yembo-next">Next <span class="arrow">→</span></button>
+          </div>
+          <form action="" id="yembo-ballpark-estimate-widget-form-step2">
+            <div class="content" data-step="2">
+              <div class="step">Step 2 of 2</div>
+              <h2>What is your contact information?</h2>
+              <div class="fields-row">
+                <div class="field">
+                  <label for="first-name">First name</label>
+                  <input id="first-name" type="text" placeholder="" required />
+                </div>
+                <div class="field">
+                  <label for="last-name">Last name</label>
+                  <input id="last-name" type="text" placeholder="" required />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <div>
+                    <input id="phone" type="tel" required />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" placeholder="" required />
+                </div>
+              </div>
+              <div class="consent-row">
+                <label>
+                  <input type="checkbox" id="sms-consent" />
+                  I consent to be contacted via SMS
+                </label>
+              </div>
+              <p class="privacy-text">
+                We respect your privacy. The information you provide will only
+                be used to generate the quote you requested. For more details,
+                please review our
+                <a href="#">Privacy Policy</a>.
+              </p>
+              <div class="actions step-2-actions">
+                <button id="yembo-back">
+                  <span class="arrow">←</span>
+                  Back
+                </button>
+                <button type="submit" id="yembo-submit">
+                  Get your estimate now
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="content" data-step="3">
+            <h2>
+              Your <span id="summary-size">2 bedroom</span> move from
+              <span id="summary-from">London, UK</span> to
+              <span id="summary-to">Amsterdam, NL</span>
+              is estimated to cost:
+            </h2>
+
+            <p class="ballpark-figure">£3,000 – £10,000</p>
+
+            <p class="description">
+              Start your free virtual walkthrough to get tailored pricing and
+              expert advice.
+            </p>
+
+            <p class="disclaimer">
+              This ballpark figure is for initial guidance only. A personalized
+              quote will be provided after your virtual walkthrough.
+            </p>
+
+            <div class="actions step-3-actions">
+              <button id="yembo-finish">Get your personalized quote</button>
+            </div>
+          </div>
+          <div class="content" data-step="4">
+            <div class="desktop-step4">
+              <h2>Continue on your mobile device!</h2>
+              <p>
+                Scan this QR code on your mobile device to launch your virtual
+                walkthrough!
+              </p>
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?data=https://yembo.ai/&size=200x200"
+                alt="QR Code"
+              />
+            </div>
+            <div class="mobile-step4" style="display: none">
+              <h2>Thank You!</h2>
+              <p>Thanks! We’ll text you a link to get started shortly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+  </body>
+</html>
